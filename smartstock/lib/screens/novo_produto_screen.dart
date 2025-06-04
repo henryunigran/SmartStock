@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class NovoProdutoScreen extends StatefulWidget {
+  const NovoProdutoScreen({super.key});
+
   @override
   _NovoProdutoScreenState createState() => _NovoProdutoScreenState();
 }
@@ -24,17 +26,15 @@ class _NovoProdutoScreenState extends State<NovoProdutoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cadastrar Produto'),
+        title: const Text('Cadastrar Produto'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pushReplacementNamed(context, '/menu'),
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.shopping_cart),
-            onPressed: () {
-              // ação futura
-            },
+            icon: const Icon(Icons.shopping_cart),
+            onPressed: () {},
           )
         ],
         backgroundColor: Colors.green[700],
@@ -47,18 +47,18 @@ class _NovoProdutoScreenState extends State<NovoProdutoScreen> {
             children: [
               TextField(
                 controller: nomeController,
-                decoration: InputDecoration(labelText: 'Nome do Produto'),
+                decoration: const InputDecoration(labelText: 'Nome do Produto'),
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               TextField(
                 controller: descricaoController,
                 maxLines: 3,
-                decoration: InputDecoration(labelText: 'Descrição'),
+                decoration: const InputDecoration(labelText: 'Descrição'),
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               DropdownButtonFormField<String>(
                 value: categoriaSelecionada,
-                decoration: InputDecoration(labelText: 'Categoria'),
+                decoration: const InputDecoration(labelText: 'Categoria'),
                 items: categorias.map((categoria) {
                   return DropdownMenuItem<String>(
                     value: categoria,
@@ -71,34 +71,35 @@ class _NovoProdutoScreenState extends State<NovoProdutoScreen> {
                   });
                 },
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               TextField(
                 controller: fornecedorController,
-                decoration: InputDecoration(labelText: 'Fornecedor'),
+                decoration: const InputDecoration(labelText: 'Fornecedor'),
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               TextField(
                 controller: valorController,
                 keyboardType: TextInputType.number,
-                decoration: InputDecoration(labelText: 'Valor'),
+                decoration: const InputDecoration(labelText: 'Valor'),
               ),
-              SizedBox(height: 12),
-              Text('Imagens do produto (em breve)', style: TextStyle(color: Colors.grey)),
-              SizedBox(height: 24),
+              const SizedBox(height: 12),
+              const Text('Imagens do produto (em breve)',
+                  style: TextStyle(color: Colors.grey)),
+              const SizedBox(height: 24),
               Center(
                 child: ElevatedButton.icon(
-                  icon: Icon(Icons.save),
-                  label: Text('Salvar Produto'),
+                  icon: const Icon(Icons.save),
+                  label: const Text('Salvar Produto'),
                   onPressed: () {
-                    // salvar o produto no banco
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Produto salvo!')),
+                      const SnackBar(content: Text('Produto salvo!')),
                     );
                     Navigator.pop(context);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
-                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24, vertical: 12),
                   ),
                 ),
               )

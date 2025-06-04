@@ -8,15 +8,18 @@ import 'screens/splash_screen.dart';
 import 'screens/menu_screen.dart';
 import 'screens/produtos_screen.dart';
 import 'screens/categoria_screen.dart';
-import 'screens/novo_produto_screen.dart';    
-import 'screens/relatorios_screen.dart';      
-import 'screens/configuracoes_screen.dart';  
-import 'screens/perfil_screen.dart'; 
+import 'screens/novo_produto_screen.dart';
+import 'screens/relatorios_screen.dart';
+import 'screens/configuracoes_screen.dart';
+import 'screens/perfil_screen.dart';
+
 void main() {
   runApp(SmartStockApp());
 }
 
 class SmartStockApp extends StatelessWidget {
+  const SmartStockApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

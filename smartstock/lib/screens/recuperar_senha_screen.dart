@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class RecuperarSenhaScreen extends StatefulWidget {
+  const RecuperarSenhaScreen({super.key});
+
   @override
   _RecuperarSenhaScreenState createState() => _RecuperarSenhaScreenState();
 }
@@ -22,10 +24,11 @@ class _RecuperarSenhaScreenState extends State<RecuperarSenhaScreen> {
         child: Center(
           child: SingleChildScrollView(
             child: Card(
-              margin: EdgeInsets.symmetric(horizontal: 20),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)),
               child: Padding(
-                padding: EdgeInsets.all(24),
+                padding: const EdgeInsets.all(24),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -37,41 +40,40 @@ class _RecuperarSenhaScreenState extends State<RecuperarSenhaScreen> {
                         color: Colors.green[700],
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Text(
                       "Informe seu e-mail para receber um código de verificação",
                       style: TextStyle(color: Colors.grey[700]),
                       textAlign: TextAlign.center,
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     TextField(
                       controller: emailController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Email',
                         border: OutlineInputBorder(),
                       ),
                       keyboardType: TextInputType.emailAddress,
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: () {
-                        // Aqui você pode chamar o envio de e-mail e redirecionar para a tela de verificação
                         Navigator.pushNamed(context, '/verificar');
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
-                        minimumSize: Size(double.infinity, 50),
+                        minimumSize: const Size(double.infinity, 50),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      child: Text("Enviar Código"),
+                      child: const Text("Enviar Código"),
                     ),
                     TextButton(
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      child: Text("Voltar para Login"),
+                      child: const Text("Voltar para Login"),
                     ),
                   ],
                 ),

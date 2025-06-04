@@ -1,56 +1,57 @@
 import 'package:flutter/material.dart';
 
 class ConfiguracoesScreen extends StatelessWidget {
+  const ConfiguracoesScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Configurações'),
-        leading: BackButton(),
+        title: const Text('Configurações'),
+        leading: const BackButton(),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: ListView(
           children: [
             ListTile(
-              leading: Icon(Icons.person),
-              title: Text('Perfil'),
-              subtitle: Text('Editar informações pessoais'),
-              onTap: () {
-                // Futuramente: abrir edição de perfil
-              },
+              leading: const Icon(Icons.person),
+              title: const Text('Perfil'),
+              subtitle: const Text('Editar informações pessoais'),
+              onTap: () {},
             ),
-            Divider(),
+            const Divider(),
             ListTile(
-              leading: Icon(Icons.lock),
-              title: Text('Segurança'),
-              subtitle: Text('Alterar senha e configurações de segurança'),
+              leading: const Icon(Icons.lock),
+              title: const Text('Segurança'),
+              subtitle:
+                  const Text('Alterar senha e configurações de segurança'),
               onTap: () {
                 // Futuramente: abrir configurações de segurança
               },
             ),
-            Divider(),
+            const Divider(),
             ListTile(
-              leading: Icon(Icons.notifications),
-              title: Text('Notificações'),
-              subtitle: Text('Configurar preferências de notificação'),
+              leading: const Icon(Icons.notifications),
+              title: const Text('Notificações'),
+              subtitle: const Text('Configurar preferências de notificação'),
               onTap: () {
                 // Futuramente: abrir configurações de notificações
               },
             ),
-            Divider(),
+            const Divider(),
             ListTile(
-              leading: Icon(Icons.info),
-              title: Text('Sobre'),
-              subtitle: Text('Informações sobre o aplicativo'),
+              leading: const Icon(Icons.info),
+              title: const Text('Sobre'),
+              subtitle: const Text('Informações sobre o aplicativo'),
               onTap: () {
                 showAboutDialog(
                   context: context,
                   applicationName: 'SmartStock',
                   applicationVersion: '1.0.0',
-                  applicationIcon: Icon(Icons.inventory),
+                  applicationIcon: const Icon(Icons.inventory),
                   children: [
-                    Text('Aplicativo de gerenciamento de estoque.'),
+                    const Text('Aplicativo de gerenciamento de estoque.'),
                   ],
                 );
               },

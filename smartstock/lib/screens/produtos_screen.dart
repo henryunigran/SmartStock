@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
 class ProdutosScreen extends StatefulWidget {
+  const ProdutosScreen({super.key});
+
   @override
   _ProdutosScreenState createState() => _ProdutosScreenState();
 }
 
 class _ProdutosScreenState extends State<ProdutosScreen> {
   final TextEditingController _searchController = TextEditingController();
-  List<Map<String, dynamic>> _produtos = [
+  final List<Map<String, dynamic>> _produtos = [
     {
       'nome': 'Smartphone X',
       'valor': 1999.99,
-      'imagem': 'https://via.placeholder.com/100', // imagem genérica
+      'imagem': 'https://via.placeholder.com/100',
     },
     {
       'nome': 'Notebook Y',
@@ -49,7 +51,6 @@ class _ProdutosScreenState extends State<ProdutosScreen> {
   }
 
   void _adicionarCarrinho(Map<String, dynamic> produto) {
-    // Aqui você pode adicionar lógica para o carrinho
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('${produto['nome']} adicionado ao carrinho!')),
     );
@@ -59,46 +60,45 @@ class _ProdutosScreenState extends State<ProdutosScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Produtos'),
+        title: const Text('Produtos'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pushReplacementNamed(context, '/menu');
           },
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.shopping_cart),
+            icon: const Icon(Icons.shopping_cart),
             onPressed: () {
-              // Navegação para a tela de carrinho (criar depois)
               Navigator.pushNamed(context, '/carrinho');
             },
           ),
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         child: Column(
           children: [
             TextField(
               controller: _searchController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Buscar produtos',
                 prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(),
               ),
               onChanged: _filtrarProdutos,
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             Expanded(
               child: _produtosFiltrados.isEmpty
-                  ? Center(child: Text('Nenhum produto encontrado'))
+                  ? const Center(child: Text('Nenhum produto encontrado'))
                   : ListView.builder(
                       itemCount: _produtosFiltrados.length,
                       itemBuilder: (context, index) {
                         final produto = _produtosFiltrados[index];
                         return Card(
-                          margin: EdgeInsets.symmetric(vertical: 6),
+                          margin: const EdgeInsets.symmetric(vertical: 6),
                           child: ListTile(
                             leading: Image.network(
                               produto['imagem'],
@@ -107,13 +107,14 @@ class _ProdutosScreenState extends State<ProdutosScreen> {
                               fit: BoxFit.cover,
                             ),
                             title: Text(produto['nome']),
-                            subtitle: Text('R\$ ${produto['valor'].toStringAsFixed(2)}'),
+                            subtitle: Text(
+                                'R\$ ${produto['valor'].toStringAsFixed(2)}'),
                             trailing: ElevatedButton(
                               onPressed: () => _adicionarCarrinho(produto),
-                              child: Text('Adicionar'),
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.green,
                               ),
+                              child: Text('Adicionar'),
                             ),
                           ),
                         );

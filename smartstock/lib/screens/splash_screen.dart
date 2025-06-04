@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -10,8 +12,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // Espera 3 segundos antes de ir para o login
-    Timer(Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacementNamed(context, '/login');
     });
   }
@@ -26,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
             'assets/background.png',
             fit: BoxFit.cover,
           ),
-          Center(
+          const Center(
             child: CircularProgressIndicator(
               color: Colors.white,
             ),
